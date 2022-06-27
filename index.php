@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
-
+<html lang=fr>
 <head>
-    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -23,6 +22,7 @@
         </thead>
         <tbody>
             <?php
+
             if(isset($_GET['film']) && $_GET['film'] !="" && $_GET['genre'] == 0){
             foreach ($dbh->query("SELECT * FROM movie WHERE `title` LIKE '%" . $_GET["film"] . "%'") as $row) {
                 echo "<tr> <th>" . $row["id"] . "<th><th>" . $row["title"] . "</th>";
@@ -38,6 +38,7 @@
                 echo "<th>" . $row["id"] . "<th><th>" . $row["title"] . "</th></tr>";
             }
         }
+        
             ?>
             <?php
             // foreach ($dbh->query("SELECT * FROM `distributor`  WHERE distributor.name LIKE  '%" . $_GET["distributor"] . "%'") as $row) {
@@ -53,10 +54,13 @@
                     echo "<option value=\"" . $row["id"] . "\" selected>".$row["name"]."</option>";
                     else
                     echo "<option value=\"" . $row["id"] . "\">".$row["name"]."</option>";
+                    
                 }
                 ?>
+                <style>
+</style>
             </form>
-</select>
+            </select>
         </tbody>
     </table>
 </body>
